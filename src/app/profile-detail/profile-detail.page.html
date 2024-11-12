@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Profile Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="centered-container">
+    <ion-card *ngIf="profile" class="responsive-card">
+      <ion-img [src]="profile.photo" class="responsive-img"></ion-img>
+
+      <ion-card-header>
+        <ion-card-title>{{ profile.name }}</ion-card-title>
+        <ion-card-subtitle>
+          {{ profile.age }} years old,
+          {{ profile.height }},
+          {{ profile.community }},
+          {{ profile.profession }},
+          {{ profile.city }},
+          {{ profile.state }},
+          {{ profile.country }}
+        </ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        {{ profile.description }}
+      </ion-card-content>
+      <ion-button expand="full" routerLink="/profile-swipe" class="back-button">
+        <mat-icon>arrow_back</mat-icon> Back to Profiles
+      </ion-button>
+    </ion-card>
+    
+    
+  </div>
+</ion-content>

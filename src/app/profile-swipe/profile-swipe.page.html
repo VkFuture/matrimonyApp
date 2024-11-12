@@ -1,0 +1,55 @@
+<ion-content>
+  <h6 class="heading">Daily Recommendation</h6>
+  <div class="centered-container">
+    <div
+      class="slider-container"
+      (touchstart)="onTouchStart($event)"
+      (touchmove)="onTouchMove($event)"
+      (touchend)="onTouchEnd($event)"
+    >
+      <div class="slider" #sliderElement>
+        <div *ngFor="let profile of profilesToDisplay(); let i = index" class="slider-item">
+          <ion-card *ngIf="profile" class="responsive-card" [ngClass]="{'highlight': i === 0}">
+            <div *ngIf="i === 0" class="highlight-circle"></div> <!-- Circle indicator for the middle card -->
+            <ion-img [src]="profile.photo" class="responsive-img"></ion-img>
+            <ion-card-header>
+              <ion-card-title>{{ profile.name }}</ion-card-title>
+              <ion-card-subtitle>
+                {{ profile.age }} years old, {{ profile.height }},
+                {{ profile.community }}, {{ profile.profession }},
+                {{ profile.city }}, {{ profile.state }}, {{ profile.country }}
+              </ion-card-subtitle>
+            </ion-card-header>
+            <!-- <ion-card-content>
+              {{ profile.description }}
+            </ion-card-content> -->
+            <ion-row class="ion-justify-content-around ion-align-items-center">
+              <ion-col>
+                <button mat-icon-button (click)="swipeLeftRemove(profile)">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </ion-col>
+              <ion-col>
+                <button mat-icon-button (click)="shortlist()">
+                  <mat-icon>star</mat-icon>
+                </button>
+              </ion-col>
+              <ion-col>
+                <button mat-icon-button (click)="swipeRight()">
+                  <mat-icon>check</mat-icon>
+                </button>
+              </ion-col>
+              <ion-col>
+                <button mat-icon-button (click)="swipeSelect(profile)">
+                  <mat-icon>Yes</mat-icon>
+                </button>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+        </div>
+      </div>
+      <button class="prev" (click)="prevSlide()">&#10094;</button>
+      <button class="next" (click)="nextSlide()">&#10095;</button>
+    </div>
+  </div>
+</ion-content>

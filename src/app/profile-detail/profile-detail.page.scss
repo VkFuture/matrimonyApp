@@ -1,0 +1,98 @@
+ion-content {
+  height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; 
+  padding: 0; 
+}
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  padding: 15px; 
+  background-color: white;
+  overflow: hidden; 
+}
+
+
+/* Responsive card styling */
+.responsive-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 15px;
+  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  min-height: 60vh;
+}
+
+/* Adjustments for tablets (mobile landscape) */
+@media (max-width: 768px) {
+  .responsive-card {
+    min-height: 50vh; 
+    max-width: 90vw; 
+  }
+}
+
+/* Adjustments for large screens (desktop/laptop) */
+@media (min-width: 1024px) {
+  .responsive-card {
+    min-height: 50vh; 
+    max-width: 35vw;  
+  }
+}
+/* Hover effect for a lift from all sides */
+.responsive-card:hover {
+  box-shadow: 12px 12px 12px 12px rgba(0, 0, 0, 0.3); 
+  transform: scale(1.03); 
+}
+
+
+/* Fixed size for images */
+.responsive-img {
+  width: 100% !important; 
+  height: 180px !important; 
+  object-fit: cover; 
+  border-radius: 50%; 
+  display: block;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+/* Adjustments for tablets (mobile landscape) */
+@media (max-width: 768px) {
+  .responsive-card {
+    max-width: 300px;  
+    padding: 10px;   
+  }
+  .responsive-img {
+    width: 120px; 
+    height: 120px;
+  }
+}
+
+/* Adjustments for large screens (desktop/laptop) */
+@media (min-width: 1024px) {
+  .responsive-card {
+    max-width: 350px;
+  }
+  .responsive-img {
+    width: 150px;  
+    height: 150px;
+  }
+}
+
+ion-card-title {
+  color: black;
+  font-weight: bold; 
+}
+
+.ion-justify-content-around{
+  margin-top:20px !important;
+}
