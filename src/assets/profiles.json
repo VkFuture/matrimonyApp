@@ -66,7 +66,7 @@
   },
   {
     "id": 6,
-    "name": "Olivia Williams",
+    "name": "Ethan Brown",
     "age": 30,
     "height": "5 ft 7 inch",
     "community": "American, Caucasian",
@@ -75,11 +75,11 @@
     "state": "Florida",
     "country": "USA",
     "photo": "assets/Images/Client_6.jpg",
-    "description": "Ambitious Lawyer with a flair for intellectual debates and a love for the beach. Seeking a partner who values ambition, is open-minded, and enjoys a balanced life of work and play."
+    "description": "Ambitious Lawyer with a flair for intellectual debates and a love for the beach. Seeking a partner who values ambition, is open-minded, and enjoys a balanced life of work and play. That's about me!."
   },
   {
     "id": 7,
-    "name": "Ethan Brown",
+    "name": "Olivia Williams",
     "age": 33,
     "height": "5 ft 10 inch",
     "community": "American, Caucasian",

@@ -121,7 +121,7 @@ export class ProfileDetailPage implements OnInit {
     const moveX = event.touches[0].clientX; // Track the move distance
     const swipeDistance = this.startX - moveX;
 
-    if (Math.abs(swipeDistance) > 30) {
+    if (Math.abs(swipeDistance) > 20) {
       this.isSwiping = true;
 
       if (swipeDistance < 0) {
