@@ -256,11 +256,54 @@ ion-card-title {
 //   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Add text shadow for depth */
 // }
 
-/* Responsive styles for mobile screens */
 @media (max-width: 600px) {
   .heading {
     font-size: 1rem;
     padding: 15px 10px;
     text-shadow: none;
   }
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.capsule-button {
+  border-radius: 50px; 
+  padding: 10px 30px;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  width: auto; 
+  height: 45px; 
+  outline: none;
+  border: none;
+}
+
+
+.yes-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+}
+
+.yes-button:hover {
+  background-color: #218838;
+}
+
+
+.no-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+}
+
+.no-button:hover {
+  background-color: #c82333;
+}
+.capsule-button:focus {
+  outline: none; 
+  box-shadow: 0 0 5px 2px rgba(0, 123, 255, 0.5);
 }

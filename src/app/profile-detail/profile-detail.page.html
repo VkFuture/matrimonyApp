@@ -6,13 +6,17 @@
 
 <ion-content>
   <div class="centered-container">
-    <div
-      class="slider-container"
-      (touchstart)="onTouchStart($event)"
-      (touchmove)="onTouchMove($event)"
-      (touchend)="onTouchEnd($event)"
-    >
-      <div class="slider" #sliderElement>
+     <button class="back-button" (click)="goBack()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </button>
+    <div class="slider-container">
+      <div
+        class="slider"
+        #sliderElement
+        (touchstart)="onTouchStart($event)"
+        (touchmove)="onTouchMove($event)"
+        (touchend)="onTouchEnd($event)"
+      >
         <ion-card *ngIf="currentProfile" class="responsive-card">
           <ion-img
             [src]="currentProfile.photo"
@@ -33,7 +37,7 @@
 
           <ion-row class="ion-justify-content-around ion-align-items-center">
             <ion-col>
-              <button mat-icon-button (click)="swipeLeft()">
+              <!-- <button mat-icon-button (click)="swipeLeft()">
                 <mat-icon>close</mat-icon>
               </button>
             </ion-col>
@@ -45,11 +49,25 @@
             <ion-col>
               <button mat-icon-button (click)="swipeRight()">
                 <mat-icon>check</mat-icon>
+              </button> -->
+              
+              <button class="capsule-button cross-button" (click)="swipeLeft()">
+                <i class="fas fa-times-circle"></i> 
               </button>
+
+              <button class="capsule-button shortlist-button" (click)="shortlist()">
+                <i class="fas fa-check-circle"></i> 
+              </button>
+              
+              <button class="capsule-button intrest-button" (click)="swipeRight()">
+                <i class="fas fa-thumbs-up"></i>
+              </button>
+
             </ion-col>
           </ion-row>
         </ion-card>
       </div>
+
       <button class="prev" (click)="prevSlide()">&#10094;</button>
       <button class="next" (click)="nextSlide()">&#10095;</button>
     </div>

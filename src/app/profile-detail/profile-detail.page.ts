@@ -98,7 +98,8 @@ export class ProfileDetailPage implements OnInit {
   nextSlide() {
     if (this.currentIndex < this.profiles.length - 1) {
       this.currentIndex++;
-      this.showToast("Interested", "success");
+    }else {
+      this.showToast('No more profiles', 'warning');
     }
   }
 
@@ -106,7 +107,8 @@ export class ProfileDetailPage implements OnInit {
   prevSlide() {
     if (this.currentIndex > 0) {
       this.currentIndex--;
-      this.showToast("Not Interested", "danger");
+    }else {
+      this.showToast('This is the first profiles', 'warning');
     }
   }
 
@@ -119,7 +121,7 @@ export class ProfileDetailPage implements OnInit {
     const moveX = event.touches[0].clientX; // Track the move distance
     const swipeDistance = this.startX - moveX;
 
-    if (Math.abs(swipeDistance) > 5) {
+    if (Math.abs(swipeDistance) > 30) {
       this.isSwiping = true;
 
       if (swipeDistance < 0) {
@@ -137,4 +139,9 @@ export class ProfileDetailPage implements OnInit {
     this.startX = 0;
     this.isSwiping = false;
   }
+
+  goBack() {
+    this.router.navigate(['/profile-swipe']);
+  }
+
 }

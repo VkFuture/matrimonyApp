@@ -25,7 +25,16 @@
             </ion-card-content> -->
             <ion-row class="ion-justify-content-around ion-align-items-center">
               <ion-col>
-                <button mat-icon-button (click)="swipeLeftRemove(profile)">
+                <div class="button-container">
+                  <button class="capsule-button yes-button" (click)="swipeSelect(profile)">
+                    Yes
+                  </button>
+                  <button class="capsule-button no-button" (click)="swipeLeftRemove(profile)">
+                    No
+                  </button>
+                </div>
+
+                <!-- <button mat-icon-button (click)="swipeLeftRemove(profile)">
                   <mat-icon>No</mat-icon>
                 </button>
               </ion-col>
@@ -33,6 +42,7 @@
                 <button mat-icon-button (click)="swipeSelect(profile)">
                   <mat-icon>Yes</mat-icon>
                 </button>
+                 -->
               </ion-col>
             </ion-row>
           </ion-card>

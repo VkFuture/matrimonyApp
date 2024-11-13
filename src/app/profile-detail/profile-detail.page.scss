@@ -1,9 +1,8 @@
 /* Center the card container */
 ion-content {
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   padding: 0;
 }
 
@@ -11,12 +10,10 @@ ion-content {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 110vh;
   padding: 15px;
   background-color: white;
-  overflow: hidden;
 }
-
 
 .responsive-card {
   width: 100%;
@@ -29,52 +26,17 @@ ion-content {
   flex-direction: column;
   align-items: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  min-height: 60vh;
+  min-height: 50vh; /* Adjusted for better mobile display */
 }
-
-/* Adjustments for tablets (mobile landscape) */
+ion-card-title {
+  color: black;
+  font-weight: bold;
+}
+/* Media queries for tablets and mobile */
 @media (max-width: 768px) {
   .responsive-card {
-    min-height: 50vh;
-    /* Reduced height for smaller screens */
+    min-height: auto;
     max-width: 90vw;
-    /* Allow card to occupy more width on small screens */
-  }
-}
-
-/* Adjustments for large screens (desktop/laptop) */
-@media (min-width: 1024px) {
-  .responsive-card {
-    min-height: 50vh;
-    /* Taller card for larger screens */
-    max-width: 35vw;
-    /* Limit width to ensure good readability */
-  }
-}
-
-/* Hover effect for a lift from all sides */
-.responsive-card:hover {
-  box-shadow: 12px 12px 12px 12px rgba(0, 0, 0, 0.3);
-  transform: scale(1.03);
-}
-
-
-/* Fixed size for images */
-.responsive-img {
-  width: 100% !important;
-  height: 180px !important;
-  /* Fixed height */
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
-  margin: 0;
-  margin-bottom: 20px;
-}
-
-/* Adjustments for tablets (mobile landscape) */
-@media (max-width: 768px) {
-  .responsive-card {
-    max-width: 300px;
     padding: 10px;
   }
 
@@ -84,51 +46,72 @@ ion-content {
   }
 }
 
-/* Adjustments for large screens (desktop/laptop) */
 @media (min-width: 1024px) {
   .responsive-card {
-    max-width: 350px;
-    /* Adjust card size for larger screens */
-  }
-
-  .responsive-img {
-    width: 150px;
-    /* Maintain same image size for desktop */
-    height: 150px;
-    /* Maintain same image size for desktop */
+    min-height: 50vh;
+    max-width: 35vw;
   }
 }
 
-ion-card-title {
-  color: black;
-  font-weight: bold;
+.responsive-card:hover {
+  box-shadow: 12px 12px 12px 12px rgba(0, 0, 0, 0.3);
+  transform: scale(1.03);
 }
 
-.ion-justify-content-around {
-  margin-top: 20px !important;
+.responsive-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: 20px;
 }
 
-/* Slider container */
 .slider-container {
   position: relative;
   width: 100%;
-  max-width: 1200px;
+  max-width: 400px;
   margin: 0 auto;
   overflow: hidden;
   background-color: white;
-  margin-bottom: 15% !important;
+  padding: 20px;
 }
 
-/* Add a highlight class to style the middle card */
+@media (max-width: 768px) {
+  .slider-container {
+    max-width: 90%;
+    padding: 15px;
+  }
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  will-change: transform;
+}
+
+.slider-item {
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+@media (min-width: 768px) {
+  .slider-item {
+    flex: 0 0 33.33%;
+  }
+}
+
+
 .highlight {
   position: relative;
   border: 2px solid #ff6f61;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
-  box-shadow: 12px 12px 12px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Circle indicator above the highlighted card */
 .highlight-circle {
   position: absolute;
   top: -15px;
@@ -141,18 +124,7 @@ ion-card-title {
   border: 2px solid white;
 }
 
-/* Center the slider container */
-.slider-container {
-  position: relative;
-  width: 100%;
-  max-width: 400px; /* Limit max-width to keep the container centered */
-  margin: 0 auto;
-  overflow: hidden;
-  background-color: white;
-  padding: 20px; /* Add some padding around the container */
-}
-
-/* Adjust navigation button positioning */
+/* Navigation buttons */
 .prev,
 .next {
   position: absolute;
@@ -168,105 +140,134 @@ ion-card-title {
 }
 
 .prev {
-  left: 20px; /* Move closer to the container */
+  left: 20px;
 }
 
 .next {
-  right: 20px; /* Move closer to the container */
+  right: 20px;
 }
 
-/* Hide navigation buttons when the slider is at the start or end */
 .prev:disabled,
 .next:disabled {
   display: none;
 }
 
-.slider {
-  display: flex;
-  transition: transform 0.3s ease-in-out;
-  will-change: transform;
-}
-
-.slider-item {
-  flex: 0 0 100%; /* Set to 100% to display one item at a time */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-}
-
-@media (max-width: 768px) {
-  .slider-item {
-    flex: 0 0 100%;
-  }
-}
-
-
-/* Each slider item */
-.slider-item {
-  flex: 0 0 33.33%;
+.back-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ff6f61; 
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  border: none;
+  font-size: 18px;
+  z-index: 1000;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Navigation buttons */
+.back-button ion-icon {
+  font-size: 20px;
+}
 
-
-/* Adjustments for mobile devices (show only 1 item) */
 @media (max-width: 768px) {
-  .slider-item {
-    flex: 0 0 100%;
+  .back-button {
+    top: 15px;
+    left: 15px;
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
   }
 }
 
-/* Responsive styling for mobile devices */
-@media (max-width: 768px) {
-  .slider-container {
-    max-width: 90%;
-  }
-
-  .responsive-img {
-    width: 100%;
-    height: auto;
-  }
-}
-.heading {
-  font-family: 'Arial', sans-serif;
+.capsule-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-size: 16px;
   font-weight: bold;
-  color: color;
-  text-align: center;
-  margin: 0;
-  padding-top: 3% !important;
-  padding: 20px;
-  background: white;
-  color: black;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-style: italic;
-  // box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Soft shadow around the header */
-  // border-radius: 10px; /* Rounded corners */
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.4s ease;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 20px 15px;
-  position: relative;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 8px; 
 }
 
-/* Hover effect for the heading */
-// .heading:hover {
-//   transform: scale(1.05); /* Enlarge slightly on hover */
-//   // box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Darker and bigger shadow */
-//   background: linear-gradient(45deg, #ff6f61, #e74c3c); /* Reverse gradient on hover */
-//   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Add text shadow for depth */
-// }
 
-/* Responsive styles for mobile screens */
-@media (max-width: 600px) {
-  .heading {
-    font-size: 1rem;
-    padding: 15px 10px;
-    text-shadow: none;
+.shortlist-button {
+  background-color: #007bff; 
+  color: white;
+}
+
+.cross-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.intrest-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.capsule-button i {
+  margin-right: 8px;
+  font-size: 25px;
+}
+
+.capsule-button span {
+  display: inline-block;
+}
+
+.capsule-button:hover {
+  opacity: 0.9;
+}
+
+
+/* For small devices like mobile phones */
+@media (max-width: 768px) {
+  .capsule-button {
+    font-size: 14px; 
+    padding: 10px 15px;
+  }
+
+  .capsule-button i {
+    font-size: 16px;
+  }
+
+  .capsule-button {
+    width: 100%;
+    margin: 10px 0; 
+  }
+
+  .capsule-button span {
+    font-size: 14px; 
   }
 }
+
+/* For medium to large devices like tablets and desktops */
+@media (min-width: 769px) {
+  .capsule-button {
+    font-size: 16px;
+    padding: 12px 20px; 
+  }
+
+  .capsule-button i {
+    font-size: 18px; 
+  }
+
+  .capsule-button {
+    width: auto;
+    margin: 8px;
+  }
+
+  .capsule-button span {
+    font-size: 16px; 
+  }
+}
+
