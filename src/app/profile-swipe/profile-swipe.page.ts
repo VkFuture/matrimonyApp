@@ -36,25 +36,21 @@ export class ProfileSwipePage implements OnInit {
     return this.profiles.slice(this.currentIndex, this.currentIndex + 3); // 3 Profile at a time for desktop
   }
 
-
   async showToast(message: string, color: string) {
     const toast = await this.toastController.create({
       message,
       duration: 2000,
       position: 'top',
       color: color,
-      cssClass: 'custom-toast',
     });
     toast.present();
   }
 
   swipeLeft() {
-    this.showToast("Not Interested", "danger");
     this.nextProfile();
   }
 
   swipeLeftRemove(profile: any) {
-    this.showToast("Not Interested", "danger");
     this.removeProfile(profile);  // Remove the specific profile from queue
   }
 
@@ -71,20 +67,15 @@ export class ProfileSwipePage implements OnInit {
   }
 
   swipeRight() {
-    this.showToast("Interested", "success");
     this.nextProfile();
   }
 
-  shortlist() {
-    this.showToast("Shortlisted", "primary");
-    this.nextProfile();
-  }
 
   nextProfile() {
     if (this.currentIndex < this.profiles.length - 1) {
       this.currentIndex++;
     } else {
-      this.showToast("No more profiles", "warning");
+      this.showToast('No more profiles', 'warning');
     }
   }
 
@@ -92,7 +83,8 @@ export class ProfileSwipePage implements OnInit {
   nextSlide() {
     if (this.currentIndex < this.profiles.length - 1) {
       this.currentIndex++;
-      this.showToast("Interested", "success");
+    }else {
+      this.showToast('No more profiles', 'warning');
     }
   }
 
@@ -100,7 +92,8 @@ export class ProfileSwipePage implements OnInit {
   prevSlide() {
     if (this.currentIndex > 0) {
       this.currentIndex--;
-      this.showToast("Not Interested", "danger");
+    }else {
+      this.showToast('This is the first profiles', 'warning');
     }
   }
 

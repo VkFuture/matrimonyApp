@@ -6,30 +6,52 @@
 
 <ion-content>
   <div class="centered-container">
-    <ion-card *ngIf="profile" class="responsive-card">
-      <ion-img [src]="profile.photo" class="responsive-img"></ion-img>
+    <div
+      class="slider-container"
+      (touchstart)="onTouchStart($event)"
+      (touchmove)="onTouchMove($event)"
+      (touchend)="onTouchEnd($event)"
+    >
+      <div class="slider" #sliderElement>
+        <ion-card *ngIf="currentProfile" class="responsive-card">
+          <ion-img
+            [src]="currentProfile.photo"
+            class="responsive-img"
+          ></ion-img>
+          <ion-card-header>
+            <ion-card-title>{{ currentProfile.name }}</ion-card-title>
+            <ion-card-subtitle>
+              {{ currentProfile.age }} years old, {{ currentProfile.height }},
+              {{ currentProfile.community }}, {{ currentProfile.profession }},
+              {{ currentProfile.city }}, {{ currentProfile.state }},
+              {{ currentProfile.country }}
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            {{ currentProfile.description }}
+          </ion-card-content>
 
-      <ion-card-header>
-        <ion-card-title>{{ profile.name }}</ion-card-title>
-        <ion-card-subtitle>
-          {{ profile.age }} years old,
-          {{ profile.height }},
-          {{ profile.community }},
-          {{ profile.profession }},
-          {{ profile.city }},
-          {{ profile.state }},
-          {{ profile.country }}
-        </ion-card-subtitle>
-      </ion-card-header>
-
-      <ion-card-content>
-        {{ profile.description }}
-      </ion-card-content>
-      <ion-button expand="full" routerLink="/profile-swipe" class="back-button">
-        <mat-icon>arrow_back</mat-icon> Back to Profiles
-      </ion-button>
-    </ion-card>
-    
-    
+          <ion-row class="ion-justify-content-around ion-align-items-center">
+            <ion-col>
+              <button mat-icon-button (click)="swipeLeft()">
+                <mat-icon>close</mat-icon>
+              </button>
+            </ion-col>
+            <ion-col>
+              <button mat-icon-button (click)="shortlist()">
+                <mat-icon>star</mat-icon>
+              </button>
+            </ion-col>
+            <ion-col>
+              <button mat-icon-button (click)="swipeRight()">
+                <mat-icon>check</mat-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </div>
+      <button class="prev" (click)="prevSlide()">&#10094;</button>
+      <button class="next" (click)="nextSlide()">&#10095;</button>
+    </div>
   </div>
 </ion-content>

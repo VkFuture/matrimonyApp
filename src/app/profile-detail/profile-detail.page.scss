@@ -1,22 +1,23 @@
+/* Center the card container */
 ion-content {
-  height: 100vh; 
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden; 
-  padding: 0; 
+  overflow: hidden;
+  padding: 0;
 }
+
 .centered-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; 
-  padding: 15px; 
+  height: 100vh;
+  padding: 15px;
   background-color: white;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 
-/* Responsive card styling */
 .responsive-card {
   width: 100%;
   max-width: 400px;
@@ -28,38 +29,43 @@ ion-content {
   flex-direction: column;
   align-items: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
   min-height: 60vh;
 }
 
 /* Adjustments for tablets (mobile landscape) */
 @media (max-width: 768px) {
   .responsive-card {
-    min-height: 50vh; 
-    max-width: 90vw; 
+    min-height: 50vh;
+    /* Reduced height for smaller screens */
+    max-width: 90vw;
+    /* Allow card to occupy more width on small screens */
   }
 }
 
 /* Adjustments for large screens (desktop/laptop) */
 @media (min-width: 1024px) {
   .responsive-card {
-    min-height: 50vh; 
-    max-width: 35vw;  
+    min-height: 50vh;
+    /* Taller card for larger screens */
+    max-width: 35vw;
+    /* Limit width to ensure good readability */
   }
 }
+
 /* Hover effect for a lift from all sides */
 .responsive-card:hover {
-  box-shadow: 12px 12px 12px 12px rgba(0, 0, 0, 0.3); 
-  transform: scale(1.03); 
+  box-shadow: 12px 12px 12px 12px rgba(0, 0, 0, 0.3);
+  transform: scale(1.03);
 }
 
 
 /* Fixed size for images */
 .responsive-img {
-  width: 100% !important; 
-  height: 180px !important; 
-  object-fit: cover; 
-  border-radius: 50%; 
+  width: 100% !important;
+  height: 180px !important;
+  /* Fixed height */
+  object-fit: cover;
+  border-radius: 50%;
   display: block;
   margin: 0;
   margin-bottom: 20px;
@@ -68,11 +74,12 @@ ion-content {
 /* Adjustments for tablets (mobile landscape) */
 @media (max-width: 768px) {
   .responsive-card {
-    max-width: 300px;  
-    padding: 10px;   
+    max-width: 300px;
+    padding: 10px;
   }
+
   .responsive-img {
-    width: 120px; 
+    width: 120px;
     height: 120px;
   }
 }
@@ -81,18 +88,185 @@ ion-content {
 @media (min-width: 1024px) {
   .responsive-card {
     max-width: 350px;
+    /* Adjust card size for larger screens */
   }
+
   .responsive-img {
-    width: 150px;  
+    width: 150px;
+    /* Maintain same image size for desktop */
     height: 150px;
+    /* Maintain same image size for desktop */
   }
 }
 
 ion-card-title {
   color: black;
-  font-weight: bold; 
+  font-weight: bold;
 }
 
-.ion-justify-content-around{
-  margin-top:20px !important;
+.ion-justify-content-around {
+  margin-top: 20px !important;
+}
+
+/* Slider container */
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: white;
+  margin-bottom: 15% !important;
+}
+
+/* Add a highlight class to style the middle card */
+.highlight {
+  position: relative;
+  border: 2px solid #ff6f61;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 12px 12px 12px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Circle indicator above the highlighted card */
+.highlight-circle {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #ff6f61;
+  border: 2px solid white;
+}
+
+/* Center the slider container */
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px; /* Limit max-width to keep the container centered */
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: white;
+  padding: 20px; /* Add some padding around the container */
+}
+
+/* Adjust navigation button positioning */
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.prev {
+  left: 20px; /* Move closer to the container */
+}
+
+.next {
+  right: 20px; /* Move closer to the container */
+}
+
+/* Hide navigation buttons when the slider is at the start or end */
+.prev:disabled,
+.next:disabled {
+  display: none;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  will-change: transform;
+}
+
+.slider-item {
+  flex: 0 0 100%; /* Set to 100% to display one item at a time */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .slider-item {
+    flex: 0 0 100%;
+  }
+}
+
+
+/* Each slider item */
+.slider-item {
+  flex: 0 0 33.33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+/* Navigation buttons */
+
+
+/* Adjustments for mobile devices (show only 1 item) */
+@media (max-width: 768px) {
+  .slider-item {
+    flex: 0 0 100%;
+  }
+}
+
+/* Responsive styling for mobile devices */
+@media (max-width: 768px) {
+  .slider-container {
+    max-width: 90%;
+  }
+
+  .responsive-img {
+    width: 100%;
+    height: auto;
+  }
+}
+.heading {
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  color: color;
+  text-align: center;
+  margin: 0;
+  padding-top: 3% !important;
+  padding: 20px;
+  background: white;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-style: italic;
+  // box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Soft shadow around the header */
+  // border-radius: 10px; /* Rounded corners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.4s ease;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px 15px;
+  position: relative;
+}
+
+/* Hover effect for the heading */
+// .heading:hover {
+//   transform: scale(1.05); /* Enlarge slightly on hover */
+//   // box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Darker and bigger shadow */
+//   background: linear-gradient(45deg, #ff6f61, #e74c3c); /* Reverse gradient on hover */
+//   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Add text shadow for depth */
+// }
+
+/* Responsive styles for mobile screens */
+@media (max-width: 600px) {
+  .heading {
+    font-size: 1rem;
+    padding: 15px 10px;
+    text-shadow: none;
+  }
 }

@@ -9,8 +9,8 @@
     >
       <div class="slider" #sliderElement>
         <div *ngFor="let profile of profilesToDisplay(); let i = index" class="slider-item">
-          <ion-card *ngIf="profile" class="responsive-card" [ngClass]="{'highlight': i === 0}">
-            <div *ngIf="i === 0" class="highlight-circle"></div> <!-- Circle indicator for the middle card -->
+          <ion-card *ngIf="profile" class="responsive-card" [ngClass]="{'highlight': i === 1}">
+            <div *ngIf="i === 1" class="highlight-circle"></div> <!-- Circle indicator for the middle card -->
             <ion-img [src]="profile.photo" class="responsive-img"></ion-img>
             <ion-card-header>
               <ion-card-title>{{ profile.name }}</ion-card-title>
@@ -26,17 +26,7 @@
             <ion-row class="ion-justify-content-around ion-align-items-center">
               <ion-col>
                 <button mat-icon-button (click)="swipeLeftRemove(profile)">
-                  <mat-icon>close</mat-icon>
-                </button>
-              </ion-col>
-              <ion-col>
-                <button mat-icon-button (click)="shortlist()">
-                  <mat-icon>star</mat-icon>
-                </button>
-              </ion-col>
-              <ion-col>
-                <button mat-icon-button (click)="swipeRight()">
-                  <mat-icon>check</mat-icon>
+                  <mat-icon>No</mat-icon>
                 </button>
               </ion-col>
               <ion-col>
